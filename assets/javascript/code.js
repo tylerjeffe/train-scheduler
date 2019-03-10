@@ -43,12 +43,7 @@ $(document).ready(function(){
     });
   
      dataRef.ref().on("child_added", function(snapshot) {
-     }, function(errorObject) {
-       console.log("Errors handled: " + errorObject.code);
-     });
-
-    dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
-  console.log(snapshot.val().FirstTrainTime)
+       
       var convertedTime = moment((snapshot.val().FirstTrainTime), "HH:mm").subtract(1, "years");
       console.log(convertedTime);
 
